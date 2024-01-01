@@ -8,7 +8,6 @@
     grid-template-columns: 1fr;
     justify-content: center;
     text-align: center;
-    border: 2px solid black;
 }
 
 
@@ -17,15 +16,101 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
+    
 }
 
 #displayDiv{
+    border: none;
+    margin: 0rem 0.2rem;
     border: 2px solid black;
+    padding: 1rem;
+    background-color: rgb(226, 226, 226);
+    border-radius: 0.5rem;
 }
 
 #displayContent p{
-    background-color: dodgerblue;
-    color: white;
+    background-color: whitesmoke;
+    color: black;
     font-size: 1rem;
+   margin: 0.1rem 0;
+   padding: 1rem;
 
 }
+
+button{
+    padding: 0.5rem 1rem;
+    border:  none;
+    border-radius: 0.5rem;
+    background-color: rgb(74, 237, 74);
+    margin: 0.5rem;
+    width:  20%;
+    color: rgb(13, 13, 13);
+    font-size: 1rem;
+}
+
+button:hover{
+    color: white;
+    font-size: 1rem;
+    background-color: rgb(121, 236, 121);
+}
+
+input{
+    padding: 0.3rem 0.2rem;
+    margin: 0.5rem 0rem;
+}
+
+#deleteBtn{
+    background-color: rgb(234, 73, 73);
+}
+#deleteBtn:hover{
+    background-color: rgb(255, 103, 103);
+}
+
+.updateBtn{
+    background-color: rgb(64, 154, 244);
+}
+.updateBtn:hover{
+    background-color: rgb(117, 184, 251);
+}
+
+@media screen and (max-width: 80rem) {
+    #displayContent{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #deleteBtn{
+        background-color: rgb(234, 73, 73);
+    }
+    #deleteBtn:hover{
+        background-color: rgb(255, 103, 103);
+    }
+    
+    .updateBtn{
+        background-color: rgb(64, 154, 244);
+    }
+    .updateBtn:hover{
+        background-color: rgb(117, 184, 251);
+    }
+    
+  }
+
+  @media screen and (max-width: 55rem) {
+    #displayContent{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    #deleteBtn{
+        background-color: rgb(234, 73, 73);
+    }
+    #deleteBtn:hover{
+        background-color: rgb(255, 103, 103);
+    }
+    
+    .updateBtn{
+        background-color: rgb(64, 154, 244);
+    }
+    .updateBtn:hover{
+        background-color: rgb(117, 184, 251);
+    }
+    
+  }

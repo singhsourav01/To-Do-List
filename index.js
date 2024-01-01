@@ -3,6 +3,7 @@ const description = document.querySelector("#myDescription");
 const button = document.querySelector("#myButton");
 const display = document.querySelector("#displayContent");
 
+
 button.addEventListener("click", () => {
   userInput();
 });
@@ -22,17 +23,24 @@ function userInput() {
   }
 }
 
+// Preventing update button.
+function preventUpdateButton(param1){
+  return console.log(param1)
+}
+
+
 // For displaying over-all content
 function displayTask() {
   for (let index = 0; index < localStorage.length; index++) {
-    const outputDescription = document.querySelector("#Description")
+    const outputDescription = document.querySelector("#Description");
 
     // Creating elements
     const myDiv = document.createElement("div");
     myDiv.setAttribute("id", "displayDiv");
     const myTitle = document.createElement("p");
     const myDescription = document.createElement("p");
-    myDescription.setAttribute('id', 'Description')
+    //Assigning id to each paragraph
+    myDescription.setAttribute("id", "item"+index);
     const buttonDel = document.createElement("button");
     const updateBtn = document.createElement("button");
 
@@ -46,17 +54,23 @@ function displayTask() {
       localStorage.removeItem(key);
     });
 
-     //Code of Update button
-     updateBtn.setAttribute("id", "updateBtn");
-     updateBtn.addEventListener("click", () => {
-        let updateValue = localStorage.getItem(key)
-        const presentValue = document.querySelector('#Description')
-        updateValue = presentValue.textContent 
-        localStorage.setItem(key, updateValue)
-       }
-     );
+    //Code of Update button
+    updateBtn.setAttribute("id", `updateBtn${index}`);
+    updateBtn.setAttribute("class", "updateBtn");
 
-    // const myValue = document.querySelector('#Description')
+    // updateBtn.setAttribute('disabled', '');
+
+    updateBtn.addEventListener("click", () => {
+      
+      let paraValue = document.querySelector(`#${paraVal}`)
+
+        if(!(paraValue.textContent === "")){
+          updateValue = paraValue.textContent
+        localStorage.setItem(key, updateValue)
+        } else{
+          alert("Enter something")
+        }
+    });
 
     // Assigning the value to elements
     myTitle.textContent = key;
@@ -74,3 +88,14 @@ function displayTask() {
   }
 }
 displayTask();
+
+  const buttons = document.getElementsByTagName("p");
+  let paraVal ;
+  for (let para of buttons) {
+    para.addEventListener("click", (e)=>{
+      let eachParaId = e.target.id;  // Get ID of Clicked Element
+      paraVal = eachParaId
+      
+    });
+  }
+  
